@@ -13,24 +13,7 @@
         <title>ERROR PAGE</title>
     </head>
     <body>
-        <h1>AN ERROR HAS OCCURRED</h1>
-        
-    <c:choose>
-        <c:when test="${param.inputUsername == ''}">
-            <h2>NO USERNAME WAS INPUTTED!</h2>
-        </c:when>
-            
-        <c:when test="${param.inputPassword == ''}">
-            <h2>NO PASSWORD WAS INPUTTED!</h2>
-        </c:when>
-            
-        <c:when test="${param.inputUsername != param.validUserName}">
-            <h2>NO USERNAME WAS INPUTTED!</h2>
-        </c:when>
-            
-        <c:when test="${param.inputPassword != param.validPassword}">
-            <h2>NO PASSWORD WAS INPUTTED!</h2>
-        </c:when>
-    </c:choose>
+        <h1>AN ERROR HAS OCCURRED!</h1>
+        <h2>${errorMessage}</h2>
     </body>
 </html>

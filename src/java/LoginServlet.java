@@ -38,41 +38,40 @@ public class LoginServlet extends HttpServlet {
         //get user input
         String inputUsername = request.getParameter("userName");
         String inputPassword = request.getParameter("password");
+        
+        //validation of user input
+        if (inputUsername.isEmpty() && inputUsername.isEmpty()) {
+            request.setAttribute("errorMessage", "NO USERNAME AND PASSWORD WAS INPUTTED!");
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+            return;
+        }
+        
+        if (inputUsername.isEmpty()) {
+            request.setAttribute("errorMessage", "NO USERNAME WAS INPUTTED!");
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+            return;
+        }
+        
+        if (inputPassword.isEmpty()) {
+            request.setAttribute("errorMessage", "NO PASSWORD WAS INPUTTED!");
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+            return;
+        }
 
-        if (inputUsername.equals("") || inputPassword.equals("")) {
-            RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
-            rd.forward(request, response);
+        if (!inputUsername.equals(validUserName)) {
+            request.setAttribute("errorMessage", "INVALID USERNAME!");
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+            return;
         }
-        
-        if(!inputUsername.equals(validUserName)){
-            RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
-            rd.forward(request, response);
-        }
-        
-        if(!inputPassword.equals(validPassword)){
-            RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
-            rd.forward(request, response);
-        }
-        
-        if(inputPassword.equals(validPassword) && inputUsername.equals(validUserName)){
-            RequestDispatcher rd = request.getRequestDispatcher("success.jsp");
-            rd.forward(request, response);
-        }
-        
-        
 
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet LoginServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        if (!inputPassword.equals(validPassword)) {
+            request.setAttribute("errorMessage", "INVALID PASSWORD!");
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+            return;
         }
+
+        //if success
+        request.getRequestDispatcher("success.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
