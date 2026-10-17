@@ -17,14 +17,14 @@
         <form action="LoginServlet" method="POST">
             <div>
                 <label for="userName">Name:</label>
-                <input type="text" id="userName" name="userName" required>
+                <input type="text" id="userName" name="userName">
             </div>
 
             <br>
 
             <div>
                 <label for="password">Password:</label>
-                <input type="text" id="password" name="password" required>
+                <input type="text" id="password" name="password">
             </div>
 
             <br>
