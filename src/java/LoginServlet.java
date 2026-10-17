@@ -40,24 +40,21 @@ public class LoginServlet extends HttpServlet {
         String inputPassword = request.getParameter("password");
         
         //validation of user input
-        if (inputUsername.isEmpty() && inputUsername.isEmpty()) {
+        
+        if (inputUsername.isEmpty() && inputPassword.isEmpty()) {
             request.setAttribute("errorMessage", "NO USERNAME AND PASSWORD WAS INPUTTED!");
             request.getRequestDispatcher("error.jsp").forward(request, response);
             return;
-        }
-        
-        if (inputUsername.isEmpty()) {
+        }else if (inputUsername.isEmpty()) {
             request.setAttribute("errorMessage", "NO USERNAME WAS INPUTTED!");
             request.getRequestDispatcher("error.jsp").forward(request, response);
             return;
-        }
-        
-        if (inputPassword.isEmpty()) {
+        }else if (inputPassword.isEmpty()) {
             request.setAttribute("errorMessage", "NO PASSWORD WAS INPUTTED!");
             request.getRequestDispatcher("error.jsp").forward(request, response);
             return;
         }
-
+        
         if (!inputUsername.equals(validUserName)) {
             request.setAttribute("errorMessage", "INVALID USERNAME!");
             request.getRequestDispatcher("error.jsp").forward(request, response);
