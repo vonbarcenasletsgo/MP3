@@ -53,6 +53,13 @@ public class LoginServlet extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
             rd.forward(request, response);
         }
+        
+        if(inputPassword.equals(validPassword) && inputUsername.equals(validUserName)){
+            RequestDispatcher rd = request.getRequestDispatcher("success.jsp");
+            rd.forward(request, response);
+        }
+        
+        
 
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
