@@ -38,11 +38,21 @@ public class LoginServlet extends HttpServlet {
         //get user input
         String inputUsername = request.getParameter("userName");
         String inputPassword = request.getParameter("password");
-        
+
         if (inputUsername.equals("") || inputPassword.equals("")) {
-                RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
-                rd.forward(request, response);
-            }
+            RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
+            rd.forward(request, response);
+        }
+        
+        if(!inputUsername.equals(validUserName)){
+            RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
+            rd.forward(request, response);
+        }
+        
+        if(!inputPassword.equals(validPassword)){
+            RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
+            rd.forward(request, response);
+        }
 
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */

@@ -12,9 +12,17 @@
             <param-value>password123</param-value>
         </init-param>
     </servlet>
+    <servlet>
+        <servlet-name>CharacterCountingServlet</servlet-name>
+        <servlet-class>CharacterCountingServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CharacterCountingServlet</servlet-name>
+        <url-pattern>/CharacterCountingServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
