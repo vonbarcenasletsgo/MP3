@@ -33,27 +33,27 @@ public class CharacterCountingServlet extends HttpServlet {
         String sample = request.getParameter("randomString");
 
         String modifiedString = sample.trim();
+        
         int stringLength = modifiedString.length();
         int numberOfDigits = 0;
         int numberOfVowels = 0;
         int numberOfSymbols = 0;
+        int numberOfConsonants = 0;
 
         for (int x = 0; x < stringLength; x++) {
-            if (numberChecker(sample.charAt(x))) {
+            char temp = modifiedString.charAt(x);
+
+            if (numberChecker(temp)) {
                 numberOfDigits++;
-            }
-
-            if (vowelChecker(sample.charAt(x))) {
+            }else if (vowelChecker(temp)) {
                 numberOfVowels++;
-            }
-
-            if (symbolChecker(sample.charAt(x))) {
+            }else if (symbolChecker(temp)) {
                 numberOfSymbols++;
+            }else if (!vowelChecker(temp) && !symbolChecker(temp) && !numberChecker(temp)) {
+                numberOfConsonants++;
             }
         }
 
-        int numberOfConsonants = modifiedString.length() - numberOfVowels;
-        
     }
 
     public boolean numberChecker(char c) {
@@ -65,8 +65,9 @@ public class CharacterCountingServlet extends HttpServlet {
     }
 
     public boolean vowelChecker(char c) {
+        char temp = Character.toLowerCase(c);
         boolean res = false;
-        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+        if (temp == 'a' || temp == 'e' || temp == 'i' || temp == 'o' || temp == 'u') {
             res = true;
         }
         return res;
