@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Machine Problem 3</title>
     </head>
     <body>
         <h1>WELCOME TO THE LOG-IN PAGE!</h1>
