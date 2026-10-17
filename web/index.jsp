@@ -14,7 +14,7 @@
     <body>
         <h1>WELCOME TO THE LOG-IN PAGE!</h1>
 
-        <form action="SubmitForm" method="POST">
+        <form action="LoginServlet" method="POST">
             <div>
                 <label for="userName">Name:</label>
                 <input type="text" id="userName" name="userName" required>
