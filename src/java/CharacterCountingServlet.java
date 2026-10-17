@@ -10,6 +10,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.RequestDispatcher;
+
 
 /**
  *
@@ -49,36 +51,38 @@ public class CharacterCountingServlet extends HttpServlet {
                 numberOfVowels++;
             }else if (symbolChecker(temp)) {
                 numberOfSymbols++;
-            }else if (!vowelChecker(temp) && !symbolChecker(temp) && !numberChecker(temp)) {
+            }else if (consonantChecker(temp)) {
                 numberOfConsonants++;
             }
         }
+        
+        request.setAttribute("digits", numberOfDigits);
+        request.setAttribute("vowels", numberOfVowels);
+        request.setAttribute("symbols", numberOfSymbols);
+        request.setAttribute("consonants", numberOfConsonants);
+        request.getRequestDispatcher("success.jsp").forward(request, response);
 
     }
 
     public boolean numberChecker(char c) {
-        boolean res = false;
-        if (c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7' || c == '8' || c == '9') {
-            res = true;
-        }
-        return res;
+        
+        return (c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7' || c == '8' || c == '9');
+         
     }
 
     public boolean vowelChecker(char c) {
         char temp = Character.toLowerCase(c);
-        boolean res = false;
-        if (temp == 'a' || temp == 'e' || temp == 'i' || temp == 'o' || temp == 'u') {
-            res = true;
-        }
-        return res;
+        
+        return (temp == 'a' || temp == 'e' || temp == 'i' || temp == 'o' || temp == 'u');
     }
 
     public boolean symbolChecker(char c) {
-        boolean res = false;
-        if (c == '!' || c == '?' || c == '@' || c == '#' || c == '.') {
-            res = true;
-        }
-        return res;
+        return (c == '!' || c == '?' || c == '@' || c == '#' || c == '.'); 
+    }
+    
+    public boolean consonantChecker(char c){
+        return(!vowelChecker(c) && !symbolChecker(c) && !numberChecker(c) && c != (' '));
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
