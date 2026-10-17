@@ -18,7 +18,7 @@
                 <label for="userName">Enter a random string:</label>
                 <input type="text" id="randomString" name="randomString">
             </div>
-            <button type="submit">Log-In</button>
+            <button type="submit">Submit</button>
         </form>
     </body>
 </html>
