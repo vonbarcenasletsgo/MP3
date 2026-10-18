@@ -20,5 +20,16 @@
             </div>
             <button type="submit">SUBMIT</button>
         </form>
+        
+        <% if(request.getAttribute("digits") != null){ %>
+        <h2>The string has a character count of:</h2>
+        <ul>
+            <li>length: ${length}</li>
+            <li>digits: ${digits}</li>
+            <li>vowels: ${vowels}</li>
+            <li>symbols: ${symbols}</li>
+            <li>consonants: ${consonants}</li>
+        </ul>
+        <%}%>
     </body>
 </html>

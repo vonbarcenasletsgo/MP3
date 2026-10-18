@@ -55,7 +55,7 @@ public class CharacterCountingServlet extends HttpServlet {
                 numberOfConsonants++;
             }
         }
-        
+        request.setAttribute("length", stringLength);
         request.setAttribute("digits", numberOfDigits);
         request.setAttribute("vowels", numberOfVowels);
         request.setAttribute("symbols", numberOfSymbols);
