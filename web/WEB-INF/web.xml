@@ -12,18 +12,46 @@
             <param-value>password123</param-value>
         </init-param>
     </servlet>
-    <servlet>
-        <servlet-name>CharacterCountingServlet</servlet-name>
-        <servlet-class>CharacterCountingServlet</servlet-class>
-    </servlet>
+    
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
+    
+    <!-- for character counting servlet sir -->
+    
+    <servlet>
+        <servlet-name>CharacterCountingServlet</servlet-name>
+        <servlet-class>CharacterCountingServlet</servlet-class>
+        
+        <init-param>
+            <param-name>digits</param-name>
+            <param-value>0123456789</param-value>
+        </init-param>
+        
+        <init-param>
+            <param-name>vowels</param-name>
+            <param-value>aeiouAEIOU</param-value>
+        </init-param>
+        
+        <init-param>
+            <param-name>consonants</param-name>
+            <param-value>bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ</param-value>
+        </init-param>
+        <!--
+        <init-param>
+            <param-name>symbols</param-name>
+            <param-value>!@#$%^&*?</param-value>
+        </init-param>
+        -->
+    </servlet>
+   
     <servlet-mapping>
         <servlet-name>CharacterCountingServlet</servlet-name>
         <url-pattern>/CharacterCountingServlet</url-pattern>
     </servlet-mapping>
+    
+    
     <session-config>
         <session-timeout>
             30

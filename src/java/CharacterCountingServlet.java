@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.RequestDispatcher;
 
-
 /**
  *
  * @author Vaughn
@@ -28,6 +27,18 @@ public class CharacterCountingServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    private String digitsList;
+    private String vowelsList;
+    private String consonantsList;
+
+    @Override
+    public void init() throws ServletException {
+        digitsList = getInitParameter("digits");
+        vowelsList = getInitParameter("vowels");
+        consonantsList = getInitParameter("consonants");
+
+    }
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -35,7 +46,7 @@ public class CharacterCountingServlet extends HttpServlet {
         String sample = request.getParameter("randomString");
 
         String modifiedString = sample.trim();
-        
+
         int stringLength = modifiedString.length();
         int numberOfDigits = 0;
         int numberOfVowels = 0;
@@ -47,11 +58,11 @@ public class CharacterCountingServlet extends HttpServlet {
 
             if (numberChecker(temp)) {
                 numberOfDigits++;
-            }else if (vowelChecker(temp)) {
+            } else if (vowelChecker(temp)) {
                 numberOfVowels++;
-            }else if (symbolChecker(temp)) {
+            } else if (symbolChecker(temp)) {
                 numberOfSymbols++;
-            }else if (consonantChecker(temp)) {
+            } else if (consonantChecker(temp)) {
                 numberOfConsonants++;
             }
         }
@@ -65,24 +76,24 @@ public class CharacterCountingServlet extends HttpServlet {
     }
 
     public boolean numberChecker(char c) {
-        
-        return (c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7' || c == '8' || c == '9');
-         
+
+        return digitsList.indexOf(c) != -1;
+
     }
 
     public boolean vowelChecker(char c) {
-        char temp = Character.toLowerCase(c);
-        
-        return (temp == 'a' || temp == 'e' || temp == 'i' || temp == 'o' || temp == 'u');
+
+        return vowelsList.indexOf(c) != -1;
+    }
+
+    public boolean consonantChecker(char c) {
+
+        return consonantsList.indexOf(c) != -1;
+
     }
 
     public boolean symbolChecker(char c) {
-        return (c == '!' || c == '?' || c == '@' || c == '#' || c == '.'); 
-    }
-    
-    public boolean consonantChecker(char c){
-        return(!vowelChecker(c) && !symbolChecker(c) && !numberChecker(c) && c != (' '));
-        
+        return !(numberChecker(c) && vowelChecker(c) && consonantChecker(c));
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
