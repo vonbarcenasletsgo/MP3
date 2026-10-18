@@ -30,6 +30,5 @@
             <li>symbols: ${symbols}</li>
             <li>consonants: ${consonants}</li>
         </ul>
-        <%}%>
     </body>
 </html>
