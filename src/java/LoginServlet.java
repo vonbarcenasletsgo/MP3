@@ -12,6 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.RequestDispatcher;
 
+//import to tell the time
+import java.util.Date;
+import javax.servlet.ServletContext;
+ 
 /**
  *
  * @author Vaughn
@@ -30,7 +34,28 @@ public class LoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+        //tell the time (Freezes once displayed; may not be needed since it will be placed in footer of jsps instead
+        //this will just store the time (instructions indicate it to be displayed, so idk)
+        ServletContext context = getServletContext(); 
+        Date timeNow = (Date) context.getAttribute("timeNow");
+        
+        /* //Displays the time (causes the freeze)
+        try (PrintWriter out = response.getWriter()) {
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Log-in Servlet</title>");
+            out.println("</head>");
+            out.println("<body>");
 
+            out.println("<h1>The date is: </h1>" + timeNow);
+
+            out.println("</body>");
+            out.println("</html>");
+        }
+        */
+        
         //get init-params
         String validUserName = getInitParameter("userName");
         String validPassword = getInitParameter("password");
@@ -40,7 +65,6 @@ public class LoginServlet extends HttpServlet {
         String inputPassword = request.getParameter("password");
         
         //validation of user input
-        
         if (inputUsername.isEmpty() && inputPassword.isEmpty()) {
             request.setAttribute("errorMessage", "NO USERNAME AND PASSWORD WAS INPUTTED!");
             request.getRequestDispatcher("error.jsp").forward(request, response);

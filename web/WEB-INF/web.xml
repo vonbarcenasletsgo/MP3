@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <!-- for log in servlet -->
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>LoginServlet</servlet-class>
@@ -12,28 +13,23 @@
             <param-value>password123</param-value>
         </init-param>
     </servlet>
-    
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
     
     <!-- for character counting servlet sir -->
-    
     <servlet>
         <servlet-name>CharacterCountingServlet</servlet-name>
         <servlet-class>CharacterCountingServlet</servlet-class>
-        
         <init-param>
             <param-name>digits</param-name>
             <param-value>0123456789</param-value>
         </init-param>
-        
         <init-param>
             <param-name>vowels</param-name>
             <param-value>aeiouAEIOU</param-value>
         </init-param>
-        
         <init-param>
             <param-name>consonants</param-name>
             <param-value>bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ</param-value>
@@ -45,19 +41,34 @@
         </init-param>
         -->
     </servlet>
-   
+    
     <servlet-mapping>
         <servlet-name>CharacterCountingServlet</servlet-name>
         <url-pattern>/CharacterCountingServlet</url-pattern>
     </servlet-mapping>
     
+    <!--ServletContext-->
+    <listener>
+        <listener-class>DateHeaderFooterServletContext</listener-class>
+    </listener>
+    
+    <!--header footer inclusions-->
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <include-prelude>header.jsp</include-prelude>
+            <include-coda>footer.jsp</include-coda>
+        </jsp-property-group>
+    </jsp-config>
     
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
+    
 </web-app>
