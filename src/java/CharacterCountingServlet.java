@@ -60,7 +60,7 @@ public class CharacterCountingServlet extends HttpServlet {
                 numberOfDigits++;
             } else if (vowelChecker(temp)) {
                 numberOfVowels++;
-            }  else if (consonantChecker(temp)) {
+            } else if (consonantChecker(temp)) {
                 numberOfConsonants++;
             } else if (symbolChecker(temp)) {
                 numberOfSymbols++;
