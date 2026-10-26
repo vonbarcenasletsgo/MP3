@@ -93,7 +93,7 @@ public class CharacterCountingServlet extends HttpServlet {
     }
 
     public boolean symbolChecker(char c) {
-        return !(numberChecker(c) && vowelChecker(c) && consonantChecker(c));
+        return !(numberChecker(c) || vowelChecker(c) || consonantChecker(c));
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
