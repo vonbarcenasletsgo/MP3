@@ -11,10 +11,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="style.css">
         <title>Success!</title>
     </head>
     <body>
         <h1>SUCCESS!</h1>
+        <section id="box2">
         <form action="CharacterCountingServlet" method="POST">
             <div>
                 <label for="userName">Enter a random string:</label>
@@ -22,7 +24,9 @@
             </div>
             <button type="submit">SUBMIT</button>
         </form>
+        <br> 
         
+        <div>
         <% if(request.getAttribute("digits") != null){ %>
         <h2>The string has a character count of:</h2>
         <ul>
@@ -33,5 +37,8 @@
             <li>consonants: ${consonants}</li>
         </ul>
         <% } %>
+        </div>
+        </section>
+        
     </body>
 </html>

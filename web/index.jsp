@@ -9,11 +9,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="style.css">
         <title>Machine Problem 3</title>
     </head>
     <body>
+        
         <h1>WELCOME TO THE LOG-IN PAGE!</h1>
-
+        <section id="box1">
         <form action="LoginServlet" method="POST">
             <div>
                 <label for="userName">Name:</label>
@@ -29,7 +31,8 @@
 
             <br>
 
-            <button type="submit">Log-In</button>
+            <button type="submit" id="btn">Log-In</button>
         </form>
+        </section>
     </body>
 </html>
