@@ -13,9 +13,12 @@
         <title>Error!</title>
     </head>
     <body>
-        <div id="msg">
-        <h1>AN ERROR HAS OCCURRED!</h1>
-        <h2>${errorMessage}</h2>
+        <div id="backgroundBox">
+            <h2>An error has occurred!</h2>
+            <h3>${errorMessage}</h3>
+            <form action="index.jsp">
+                <button type="submit">Try Again</button>
+            </form>
         </div>
     </body>
 </html>

@@ -51,13 +51,6 @@ html, body{
     padding: 0;
 }
 
-#msg{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 70vh;
-}
-
 body{
     padding-top: 7rem;
     padding-bottom: 8rem;

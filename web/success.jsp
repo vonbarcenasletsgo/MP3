@@ -4,8 +4,6 @@
     Author     : Vaughn
 --%>
 
-<!-- FIX THIS!! BROKEN!!! -->
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,7 +13,7 @@
         <title>Success!</title>
     </head>
     <body>
-        
+
 
         <section id="backgroundBox">
             <form action="CharacterCountingServlet" method="POST">
@@ -24,6 +22,11 @@
                     <input type="text" id="randomString" name="randomString">
                 </div>
                 <button id="submitbtn" type="submit">SUBMIT</button>
+                
+                <!-- back to home page -->
+              
+                <button type="button" onclick="window.location.href='index.jsp'">HOME</button>
+               
             </form>
 
             <div>
