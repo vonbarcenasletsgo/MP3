@@ -13,7 +13,9 @@
         <title>Error!</title>
     </head>
     <body>
+        <div id="msg">
         <h1>AN ERROR HAS OCCURRED!</h1>
         <h2>${errorMessage}</h2>
+        </div>
     </body>
 </html>

@@ -8,18 +8,61 @@ and open the template in the editor.
     Author     : Vaughn
 */
 
-#box1{
+#backgroundBox{
+    padding: 40px;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    margin: 60px auto;
+    text-align: center;
+    width: fit-content;
+    position: relative;
+    top: 50%;
+    bottom: 50%;
+}
+
+
+#header, #footer{
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    background-color: #ADD8E6;
+    padding: 1.5rem 0 1.5rem 0;
+}
+
+#header{
+    top: 0;
+}
+
+#footer{
+    bottom: 0;
+}
+
+#footer p{
+    margin: 0;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+#msg{
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 70vh;
 }
 
-#box2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 70vh;
+body{
+    padding-top: 7rem;
+    padding-bottom: 8rem;
 }
 
-
+#submitbtn{
+    margin: 1rem;
+}

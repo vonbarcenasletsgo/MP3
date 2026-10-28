@@ -9,10 +9,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="style.css">
         <title>Footer</title>
     </head>
     <body>
+        <div id="footer">
         <p>MP3</p>
         <p>The date is: ${applicationScope.timeNow}</p>
+        </div>
     </body>
 </html>

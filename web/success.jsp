@@ -15,30 +15,30 @@
         <title>Success!</title>
     </head>
     <body>
-        <h1>SUCCESS!</h1>
-        <section id="box2">
-        <form action="CharacterCountingServlet" method="POST">
+        
+
+        <section id="backgroundBox">
+            <form action="CharacterCountingServlet" method="POST">
+                <div>
+                    <label for="userName">Enter a random string:</label>
+                    <input type="text" id="randomString" name="randomString">
+                </div>
+                <button id="submitbtn" type="submit">SUBMIT</button>
+            </form>
+
             <div>
-                <label for="userName">Enter a random string:</label>
-                <input type="text" id="randomString" name="randomString">
+                <% if (request.getAttribute("digits") != null) { %>
+                <h2>The string has a character count of:</h2>
+                <ul>
+                    <li>length: ${length}</li>
+                    <li>digits: ${digits}</li>
+                    <li>vowels: ${vowels}</li>
+                    <li>symbols: ${symbols}</li>
+                    <li>consonants: ${consonants}</li>
+                </ul>
+                <% }%>
             </div>
-            <button type="submit">SUBMIT</button>
-        </form>
-        <br> 
-        
-        <div>
-        <% if(request.getAttribute("digits") != null){ %>
-        <h2>The string has a character count of:</h2>
-        <ul>
-            <li>length: ${length}</li>
-            <li>digits: ${digits}</li>
-            <li>vowels: ${vowels}</li>
-            <li>symbols: ${symbols}</li>
-            <li>consonants: ${consonants}</li>
-        </ul>
-        <% } %>
-        </div>
         </section>
-        
+
     </body>
 </html>

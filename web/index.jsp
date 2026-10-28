@@ -13,26 +13,25 @@
         <title>Machine Problem 3</title>
     </head>
     <body>
-        
-        <h1>WELCOME TO THE LOG-IN PAGE!</h1>
-        <section id="box1">
-        <form action="LoginServlet" method="POST">
-            <div>
-                <label for="userName">Name:</label>
-                <input type="text" id="userName" name="userName">
-            </div>
 
-            <br>
+        <section id="backgroundBox">
+            <form action="LoginServlet" method="POST">
+                <div>
+                    <label for="userName">Name:</label>
+                    <input type="text" id="userName" name="userName">
+                </div>
 
-            <div>
-                <label for="password">Password:</label>
-                <input type="text" id="password" name="password">
-            </div>
+                <br>
 
-            <br>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="text" id="password" name="password">
+                </div>
 
-            <button type="submit" id="btn">Log-In</button>
-        </form>
+                <br>
+
+                <button type="submit" id="btn">Log-In</button>
+            </form>
         </section>
     </body>
 </html>
