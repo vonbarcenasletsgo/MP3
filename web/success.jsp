@@ -35,9 +35,9 @@
                 <ul>
                     <li>length: ${length}</li>
                     <li>digits: ${digits}</li>
-                    <li>vowels: ${vowels}</li>
-                    <li>symbols: ${symbols}</li>
+                    <li>vowels: ${vowels}</li>  
                     <li>consonants: ${consonants}</li>
+                    <li>symbols: ${symbols}</li>
                 </ul>
                 <% }%>
             </div>
